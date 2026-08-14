@@ -11,6 +11,16 @@
       "updated": "2026-08-14"
     },
     {
+      "id": "book-scripts",
+      "name": "Book Scripts",
+      "slug": "book-scripts",
+      "description": "Collection of book scripts scripts",
+      "emoji": "📁",
+      "scriptCount": 5,
+      "created": "2026-08-14",
+      "updated": "2026-08-14"
+    },
+    {
       "id": "css",
       "name": "Css",
       "slug": "css",
@@ -61,8 +71,8 @@
       "updated": "2026-08-14"
     }
   ],
-  "lastUpdated": "2026-08-14T14:45:35.509Z",
+  "lastUpdated": "2026-08-14T15:05:17.722Z",
   "stats": {
-    "total": 6
+    "total": 7
   }
 }

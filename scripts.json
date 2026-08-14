@@ -37,6 +37,66 @@
       "hash": "082e3bbc9cc2da2ba4fc6c7ae7a1a986"
     },
     {
+      "id": "books_normalize",
+      "name": "Books normalize",
+      "category": "book-scripts",
+      "file": "categories/book-scripts/books_normalize.py",
+      "description": "www.googleapis.com/books/v1/volumes\",",
+      "tags": [
+        "book-scripts"
+      ],
+      "updated": "2026-08-14",
+      "hash": "622fb137898d9352c8cb75f5b6f12d4c"
+    },
+    {
+      "id": "convert",
+      "name": "Convert",
+      "category": "book-scripts",
+      "file": "categories/book-scripts/convert.py",
+      "description": "/ script",
+      "tags": [
+        "book-scripts"
+      ],
+      "updated": "2026-08-14",
+      "hash": "1e25f89fb01dfe797dadadfb347ad5ac"
+    },
+    {
+      "id": "isbn_lookup",
+      "name": "Isbn lookup",
+      "category": "book-scripts",
+      "file": "categories/book-scripts/isbn_lookup.py",
+      "description": "No description provided",
+      "tags": [
+        "book-scripts"
+      ],
+      "updated": "2026-08-14",
+      "hash": "ff4c565d4c6e716db6a45426ad219f13"
+    },
+    {
+      "id": "title2isbn",
+      "name": "Title2isbn",
+      "category": "book-scripts",
+      "file": "categories/book-scripts/title2isbn.py",
+      "description": "/ script",
+      "tags": [
+        "book-scripts"
+      ],
+      "updated": "2026-08-14",
+      "hash": "693cd92b8e2350043bfa8ddd08ce1c36"
+    },
+    {
+      "id": "title2isbn-2-fixed",
+      "name": "Title2isbn 2 fixed",
+      "category": "book-scripts",
+      "file": "categories/book-scripts/title2isbn-2-fixed.py",
+      "description": "/ script",
+      "tags": [
+        "book-scripts"
+      ],
+      "updated": "2026-08-14",
+      "hash": "8184d3d41b8b8292acbb4a0a3c64750c"
+    },
+    {
       "id": "awesome",
       "name": "Awesome",
       "category": "css",
@@ -361,10 +421,10 @@
       "hash": "c6fc80f853c6c26843cd935c5e338100"
     }
   ],
-  "lastUpdated": "2026-08-14T14:45:35.577Z",
+  "lastUpdated": "2026-08-14T15:05:17.769Z",
   "stats": {
-    "total": 30,
-    "new": 6,
-    "updated": 24
+    "total": 35,
+    "new": 5,
+    "updated": 30
   }
 }
