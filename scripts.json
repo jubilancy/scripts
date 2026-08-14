@@ -37,6 +37,42 @@
       "hash": "082e3bbc9cc2da2ba4fc6c7ae7a1a986"
     },
     {
+      "id": "awesome",
+      "name": "Awesome",
+      "category": "css",
+      "file": "categories/css/awesome.css",
+      "description": "No description provided",
+      "tags": [
+        "css"
+      ],
+      "updated": "2026-08-14",
+      "hash": "a93f0656fb4f699235d6304f22aba1a3"
+    },
+    {
+      "id": "elements",
+      "name": "Elements",
+      "category": "css",
+      "file": "categories/css/elements.css",
+      "description": "lune.dimden.dev/405a44b7e5.png */",
+      "tags": [
+        "css"
+      ],
+      "updated": "2026-08-14",
+      "hash": "c3955668946ab76223427ff415d2a825"
+    },
+    {
+      "id": "style",
+      "name": "Style",
+      "category": "css",
+      "file": "categories/css/style.css",
+      "description": "fonts.cdnfonts.com/css/jetbrains-mono-2');",
+      "tags": [
+        "css"
+      ],
+      "updated": "2026-08-14",
+      "hash": "2c040960803d376a33d035008089dcb3"
+    },
+    {
       "id": "csv-parser",
       "name": "Csv parser",
       "category": "data-processing",
@@ -73,6 +109,18 @@
       "hash": "574cdcb15a4e53408e2e4330dedfb093"
     },
     {
+      "id": "clean_containers",
+      "name": "Clean containers",
+      "category": "hugo",
+      "file": "categories/hugo/clean_containers.sh",
+      "description": "No description provided",
+      "tags": [
+        "hugo"
+      ],
+      "updated": "2026-08-14",
+      "hash": "cd70a5f469a15ba72068099970fea4a9"
+    },
+    {
       "id": "clean_divs",
       "name": "Clean_divs",
       "category": "hugo",
@@ -83,6 +131,30 @@
       ],
       "updated": "2026-08-14",
       "hash": "56d436231618c04dfd8fc8efcc9c0f02"
+    },
+    {
+      "id": "create_hugo_index",
+      "name": "Create hugo index",
+      "category": "hugo",
+      "file": "categories/hugo/create_hugo_index.sh",
+      "description": "No description provided",
+      "tags": [
+        "hugo"
+      ],
+      "updated": "2026-08-14",
+      "hash": "de4a0509cd4df0ccf9a713dc5b3c3bd5"
+    },
+    {
+      "id": "create_layouts",
+      "name": "Create layouts",
+      "category": "hugo",
+      "file": "categories/hugo/create_layouts.sh",
+      "description": "No description provided",
+      "tags": [
+        "hugo"
+      ],
+      "updated": "2026-08-14",
+      "hash": "4228468d4c4aa09cf7d456ea3ea46b8b"
     },
     {
       "id": "create_widgets",
@@ -289,10 +361,10 @@
       "hash": "c6fc80f853c6c26843cd935c5e338100"
     }
   ],
-  "lastUpdated": "2026-08-14T14:32:50.004Z",
+  "lastUpdated": "2026-08-14T14:45:35.577Z",
   "stats": {
-    "total": 24,
-    "new": 8,
-    "updated": 16
+    "total": 30,
+    "new": 6,
+    "updated": 24
   }
 }
