@@ -1,16 +1,12 @@
-name: Auto-Index Scripts
+name: Auto-Index Scripts & Categories
 
 on:
   push:
     paths:
-      - 'categories/**/*.js'
-      - 'categories/**/*.ts'
-      - 'categories/**/*.py'
+      - 'categories/**'
   pull_request:
     paths:
-      - 'categories/**/*.js'
-      - 'categories/**/*.ts'
-      - 'categories/**/*.py'
+      - 'categories/**'
 
 jobs:
   index-scripts:
@@ -28,6 +24,10 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Create categories.json from folder structure
+        run: |
+          node .github/scripts/sync-categories.js
+
       - name: Index scripts and update JSON
         run: |
           node .github/scripts/index-scripts.js
@@ -36,5 +36,5 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "Script Indexer Bot"
-          git add scripts.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: auto-index scripts" && git push)
+          git add scripts.json categories.json 2>/dev/null || true
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: auto-index scripts and categories" && git push)
