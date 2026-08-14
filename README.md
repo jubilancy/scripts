@@ -1,4 +1,4 @@
-# My Scripts Collection
+# My Scripts Collection!
 
 Auto-indexed script repository. Drag scripts into `categories/` folders, push, and everything updates automatically.
 
