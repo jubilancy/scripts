@@ -73,6 +73,18 @@
       "hash": "5f35a16844efb1ef1238aee231033ab7"
     },
     {
+      "id": "dictionary-fetch",
+      "name": "Dictionary fetch",
+      "category": "utilities",
+      "file": "categories/utilities/dictionary-fetch.py",
+      "description": "api.dictionaryapi.dev/api/v2/entries/en/{word}\", timeout=5)",
+      "tags": [
+        "utilities"
+      ],
+      "updated": "2026-08-14",
+      "hash": "aa97939ba25b901fe6f0e795e8120685"
+    },
+    {
       "id": "string-utils",
       "name": "String utils",
       "category": "utilities",
@@ -109,10 +121,10 @@
       "hash": "c6fc80f853c6c26843cd935c5e338100"
     }
   ],
-  "lastUpdated": "2026-08-14T13:55:46.685Z",
+  "lastUpdated": "2026-08-14T14:04:38.649Z",
   "stats": {
-    "total": 9,
+    "total": 10,
     "new": 1,
-    "updated": 8
+    "updated": 9
   }
 }
