@@ -6,7 +6,7 @@
       "slug": "automation",
       "description": "Collection of automation scripts",
       "emoji": "⚙️",
-      "scriptCount": 2,
+      "scriptCount": 3,
       "created": "2026-08-14",
       "updated": "2026-08-14"
     },
@@ -41,7 +41,7 @@
       "updated": "2026-08-14"
     }
   ],
-  "lastUpdated": "2026-08-14T13:22:36.130Z",
+  "lastUpdated": "2026-08-14T13:55:46.639Z",
   "stats": {
     "total": 4
   }

@@ -13,6 +13,18 @@
       "hash": "8b9d2cb810f0a6745ef07956628aecb8"
     },
     {
+      "id": "isbn_fetcher",
+      "name": "Isbn_fetcher",
+      "category": "automation",
+      "file": "categories/automation/isbn_fetcher.py",
+      "description": "/ script",
+      "tags": [
+        "automation"
+      ],
+      "updated": "2026-08-14",
+      "hash": "eaae8a8254bddeea30980bcce361c1e8"
+    },
+    {
       "id": "retry-handler",
       "name": "Retry handler",
       "category": "automation",
@@ -97,10 +109,10 @@
       "hash": "c6fc80f853c6c26843cd935c5e338100"
     }
   ],
-  "lastUpdated": "2026-08-14T13:22:36.192Z",
+  "lastUpdated": "2026-08-14T13:55:46.685Z",
   "stats": {
-    "total": 8,
-    "new": 7,
-    "updated": 1
+    "total": 9,
+    "new": 1,
+    "updated": 8
   }
 }
