@@ -36,7 +36,7 @@
       "slug": "utilities",
       "description": "Collection of utilities scripts",
       "emoji": "🔧",
-      "scriptCount": 3,
+      "scriptCount": 9,
       "created": "2026-08-14",
       "updated": "2026-08-14"
     },
@@ -51,7 +51,7 @@
       "updated": "2026-08-14"
     }
   ],
-  "lastUpdated": "2026-08-14T14:13:34.840Z",
+  "lastUpdated": "2026-08-14T14:18:31.363Z",
   "stats": {
     "total": 5
   }

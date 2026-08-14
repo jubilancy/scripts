@@ -85,6 +85,66 @@
       "hash": "aa97939ba25b901fe6f0e795e8120685"
     },
     {
+      "id": "export_to_quartz",
+      "name": "Export_to_quartz",
+      "category": "utilities",
+      "file": "categories/utilities/export_to_quartz.py",
+      "description": "/ script",
+      "tags": [
+        "utilities"
+      ],
+      "updated": "2026-08-14",
+      "hash": "5e89f66366f284caf610d1bf4c35a3ea"
+    },
+    {
+      "id": "fix_titles",
+      "name": "Fix_titles",
+      "category": "utilities",
+      "file": "categories/utilities/fix_titles.py",
+      "description": "/ script",
+      "tags": [
+        "utilities"
+      ],
+      "updated": "2026-08-14",
+      "hash": "9cb283524042ca4471cb54777cbc1659"
+    },
+    {
+      "id": "google-api-search",
+      "name": "Google api search",
+      "category": "utilities",
+      "file": "categories/utilities/google-api-search.py",
+      "description": "No description provided",
+      "tags": [
+        "utilities"
+      ],
+      "updated": "2026-08-14",
+      "hash": "6aaa407423aab1169a00c4231f4b3f2f"
+    },
+    {
+      "id": "imdb-gallery-export",
+      "name": "Imdb gallery export",
+      "category": "utilities",
+      "file": "categories/utilities/imdb-gallery-export.py",
+      "description": "www.imdb.com/title/tt32572889/\"",
+      "tags": [
+        "utilities"
+      ],
+      "updated": "2026-08-14",
+      "hash": "556a05e7f425ecf1273aa204b0a0c8ea"
+    },
+    {
+      "id": "lexonomy-fetch",
+      "name": "Lexonomy fetch",
+      "category": "utilities",
+      "file": "categories/utilities/lexonomy-fetch.py",
+      "description": "/ script",
+      "tags": [
+        "utilities"
+      ],
+      "updated": "2026-08-14",
+      "hash": "25bb206a2f77c464f7b501d349f7a817"
+    },
+    {
       "id": "string-utils",
       "name": "String utils",
       "category": "utilities",
@@ -95,6 +155,18 @@
       ],
       "updated": "2026-08-14",
       "hash": "cb79e6bf4dfb20004867f4d6eacae7a1"
+    },
+    {
+      "id": "wiki_export",
+      "name": "Wiki_export",
+      "category": "utilities",
+      "file": "categories/utilities/wiki_export.py",
+      "description": "/ script",
+      "tags": [
+        "utilities"
+      ],
+      "updated": "2026-08-14",
+      "hash": "27007666425464660af9f1294899a2ae"
     },
     {
       "id": "color-converter",
@@ -121,10 +193,10 @@
       "hash": "c6fc80f853c6c26843cd935c5e338100"
     }
   ],
-  "lastUpdated": "2026-08-14T14:13:34.889Z",
+  "lastUpdated": "2026-08-14T14:18:31.426Z",
   "stats": {
-    "total": 10,
-    "new": 0,
+    "total": 16,
+    "new": 6,
     "updated": 10
   }
 }
