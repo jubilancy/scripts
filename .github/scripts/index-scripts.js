@@ -11,33 +11,42 @@ const SCRIPTS_JSON = path.join(process.cwd(), 'scripts.json');
  * Parse JSDoc/comments from script to extract metadata
  */
 function extractMetadata(content, filePath) {
-  const filename = path.basename(filePath, path.extname(filePath));
+  const rawBasename = path.basename(filePath);
+  // Handle dotfiles correctly: ".bashrc" should stay "bashrc" as id, not be treated as an extension
+  const isDotfile = rawBasename.startsWith('.') && !rawBasename.slice(1).includes('.');
+  const filename = isDotfile
+    ? rawBasename.slice(1)
+    : path.basename(filePath, path.extname(filePath));
   const category = path.basename(path.dirname(filePath));
   
-  // Extract JSDoc or first comment block
+  // Extract JSDoc-style /** */ block, // line comment, or # line comment (shell/python/dotfiles)
   const jsdocMatch = content.match(/\/\*\*[\s\S]*?\*\//);
-  const commentMatch = content.match(/\/\/\s*(.+)/);
+  const slashCommentMatch = content.match(/\/\/\s*(.+)/);
+  const hashCommentMatch = content.match(/^#\s*(.+)/m);
   
   let description = '';
   let tags = [];
-  let name = filename.replace(/-/g, ' ').replace(/^\w/, c => c.toUpperCase());
+  let name = (isDotfile ? '.' + filename : filename).replace(/[-_]/g, ' ').replace(/^\w/, c => c.toUpperCase());
 
   if (jsdocMatch) {
     const jsdoc = jsdocMatch[0];
     
     // Extract @description or first text
-    const descMatch = jsdoc.match(/@description\s+(.+?)(?=@|\*\/)/);
+    const descMatch = jsdoc.match(/@description\s+([^\n@]+)/);
     description = descMatch ? descMatch[1].trim() : jsdoc.match(/\*\s+(.+)/)?.[1] || '';
     
     // Extract @name
-    const nameMatch = jsdoc.match(/@name\s+(.+?)(?=@|\*\/)/);
+    const nameMatch = jsdoc.match(/@name\s+([^\n@]+)/);
     if (nameMatch) name = nameMatch[1].trim();
     
     // Extract @tags
-    const tagsMatch = jsdoc.match(/@tags?\s+(.+?)(?=@|\*\/)/);
+    const tagsMatch = jsdoc.match(/@tags?\s+([^\n@]+)/);
     if (tagsMatch) tags = tagsMatch[1].split(',').map(t => t.trim()).filter(Boolean);
-  } else if (commentMatch) {
-    description = commentMatch[1];
+  } else if (slashCommentMatch) {
+    description = slashCommentMatch[1];
+  } else if (hashCommentMatch && !hashCommentMatch[1].startsWith('!')) {
+    // Skip shebang lines (#!/bin/bash) as descriptions
+    description = hashCommentMatch[1];
   }
 
   return {
@@ -55,7 +64,7 @@ function extractMetadata(content, filePath) {
 /**
  * Recursively find all scripts in categories/
  */
-function findScripts(dir, extensions = ['.js', '.ts', '.py', '.css', '.sh', '.rb', '.go', '.html']) {
+function findScripts(dir, excludeFiles = ['.DS_Store', '.gitkeep', 'Thumbs.db']) {
   const scripts = [];
   
   if (!fs.existsSync(dir)) return scripts;
@@ -66,8 +75,9 @@ function findScripts(dir, extensions = ['.js', '.ts', '.py', '.css', '.sh', '.rb
     const fullPath = path.join(dir, entry.name);
     
     if (entry.isDirectory()) {
-      scripts.push(...findScripts(fullPath, extensions));
-    } else if (extensions.includes(path.extname(entry.name))) {
+      scripts.push(...findScripts(fullPath, excludeFiles));
+    } else if (!excludeFiles.includes(entry.name)) {
+      // Accept ALL files, including dotfiles (.bashrc, .vimrc, etc.)
       scripts.push(fullPath);
     }
   }
