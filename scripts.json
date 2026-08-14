@@ -1,24 +1,106 @@
 {
   "scripts": [
     {
-      "id": "url-parser",
-      "name": "URL Query Parser",
-      "category": "web-tools",
-      "file": "categories/web-tools/url-parser.js",
-      "description": "Parse and extract query string parameters from URLs",
+      "id": "batch-processor",
+      "name": "Batch processor",
+      "category": "automation",
+      "file": "categories/automation/batch-processor.js",
+      "description": "* @name Batch File Processor",
       "tags": [
-        "url",
-        "parsing",
-        "query-string"
+        "automation"
       ],
       "updated": "2026-08-14",
-      "hash": "abc123def456"
+      "hash": "8b9d2cb810f0a6745ef07956628aecb8"
+    },
+    {
+      "id": "retry-handler",
+      "name": "Retry handler",
+      "category": "automation",
+      "file": "categories/automation/retry-handler.js",
+      "description": "* @name Retry Handler",
+      "tags": [
+        "automation"
+      ],
+      "updated": "2026-08-14",
+      "hash": "082e3bbc9cc2da2ba4fc6c7ae7a1a986"
+    },
+    {
+      "id": "csv-parser",
+      "name": "Csv parser",
+      "category": "data-processing",
+      "file": "categories/data-processing/csv-parser.js",
+      "description": "* @name CSV Parser",
+      "tags": [
+        "data-processing"
+      ],
+      "updated": "2026-08-14",
+      "hash": "dab780d35ef2055ede459e329f234e73"
+    },
+    {
+      "id": "json-transformer",
+      "name": "Json transformer",
+      "category": "data-processing",
+      "file": "categories/data-processing/json-transformer.js",
+      "description": "* @name JSON Transformer",
+      "tags": [
+        "data-processing"
+      ],
+      "updated": "2026-08-14",
+      "hash": "eb91b63ae521affa3e748264a368c4fc"
+    },
+    {
+      "id": "array-utils",
+      "name": "Array utils",
+      "category": "utilities",
+      "file": "categories/utilities/array-utils.js",
+      "description": "* @name Array Utilities",
+      "tags": [
+        "utilities"
+      ],
+      "updated": "2026-08-14",
+      "hash": "5f35a16844efb1ef1238aee231033ab7"
+    },
+    {
+      "id": "string-utils",
+      "name": "String utils",
+      "category": "utilities",
+      "file": "categories/utilities/string-utils.js",
+      "description": "* @name String Utilities",
+      "tags": [
+        "utilities"
+      ],
+      "updated": "2026-08-14",
+      "hash": "cb79e6bf4dfb20004867f4d6eacae7a1"
+    },
+    {
+      "id": "color-converter",
+      "name": "Color converter",
+      "category": "web-tools",
+      "file": "categories/web-tools/color-converter.js",
+      "description": "* @name Hex to RGB Converter",
+      "tags": [
+        "web-tools"
+      ],
+      "updated": "2026-08-14",
+      "hash": "56c26a41273a941059e8f5ebecec758d"
+    },
+    {
+      "id": "url-parser",
+      "name": "Url parser",
+      "category": "web-tools",
+      "file": "categories/web-tools/url-parser.js",
+      "description": "* @name URL Query Parser",
+      "tags": [
+        "web-tools"
+      ],
+      "updated": "2026-08-14",
+      "hash": "c6fc80f853c6c26843cd935c5e338100"
     }
   ],
-  "lastUpdated": "2026-08-14T00:00:00.000Z",
+  "lastUpdated": "2026-08-14T13:22:36.192Z",
   "stats": {
-    "total": 1,
-    "new": 0,
-    "updated": 0
+    "total": 8,
+    "new": 7,
+    "updated": 1
   }
 }
