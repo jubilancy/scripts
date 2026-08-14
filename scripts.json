@@ -61,6 +61,102 @@
       "hash": "eb91b63ae521affa3e748264a368c4fc"
     },
     {
+      "id": "BlogList",
+      "name": "BlogList",
+      "category": "hugo",
+      "file": "categories/hugo/BlogList.js",
+      "description": "No description provided",
+      "tags": [
+        "hugo"
+      ],
+      "updated": "2026-08-14",
+      "hash": "574cdcb15a4e53408e2e4330dedfb093"
+    },
+    {
+      "id": "clean_divs",
+      "name": "Clean_divs",
+      "category": "hugo",
+      "file": "categories/hugo/clean_divs.py",
+      "description": "No description provided",
+      "tags": [
+        "hugo"
+      ],
+      "updated": "2026-08-14",
+      "hash": "56d436231618c04dfd8fc8efcc9c0f02"
+    },
+    {
+      "id": "create_widgets",
+      "name": "Create_widgets",
+      "category": "hugo",
+      "file": "categories/hugo/create_widgets.py",
+      "description": "ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${user}&api_key=${apiKey}&format=json&limit=1`;",
+      "tags": [
+        "hugo"
+      ],
+      "updated": "2026-08-14",
+      "hash": "33e4b9305c2c8f44bf542e54f9333fdd"
+    },
+    {
+      "id": "MainLayout",
+      "name": "MainLayout",
+      "category": "hugo",
+      "file": "categories/hugo/MainLayout.js",
+      "description": "github.com/rishimohan/rishimohan.me\"",
+      "tags": [
+        "hugo"
+      ],
+      "updated": "2026-08-14",
+      "hash": "84e7e778170ef2a59735a586ec431011"
+    },
+    {
+      "id": "Map",
+      "name": "Map",
+      "category": "hugo",
+      "file": "categories/hugo/Map.js",
+      "description": "www.google.com/maps/d/u/0/embed?mid=1_yNkyfqV1g9kKRz0el2r46viCfw7RBXj\"",
+      "tags": [
+        "hugo"
+      ],
+      "updated": "2026-08-14",
+      "hash": "b72ccdfd9338607b139f5f06e0924a8f"
+    },
+    {
+      "id": "Sidebar",
+      "name": "Sidebar",
+      "category": "hugo",
+      "file": "categories/hugo/Sidebar.js",
+      "description": "twitter.com/thelifeofrishi\", icon: <TwitterLogo /> },",
+      "tags": [
+        "hugo"
+      ],
+      "updated": "2026-08-14",
+      "hash": "14c1b197f750bca2e9aef5fbf7bf2529"
+    },
+    {
+      "id": "test_clean",
+      "name": "Test_clean",
+      "category": "hugo",
+      "file": "categories/hugo/test_clean.py",
+      "description": "No description provided",
+      "tags": [
+        "hugo"
+      ],
+      "updated": "2026-08-14",
+      "hash": "0f2f773491139e2ea4a09e1083d98847"
+    },
+    {
+      "id": "WorkList",
+      "name": "WorkList",
+      "category": "hugo",
+      "file": "categories/hugo/WorkList.js",
+      "description": "No description provided",
+      "tags": [
+        "hugo"
+      ],
+      "updated": "2026-08-14",
+      "hash": "60b41693a637608e83ef4641f5ac3aa1"
+    },
+    {
       "id": "array-utils",
       "name": "Array utils",
       "category": "utilities",
@@ -193,10 +289,10 @@
       "hash": "c6fc80f853c6c26843cd935c5e338100"
     }
   ],
-  "lastUpdated": "2026-08-14T14:18:31.426Z",
+  "lastUpdated": "2026-08-14T14:32:50.004Z",
   "stats": {
-    "total": 16,
-    "new": 6,
-    "updated": 10
+    "total": 24,
+    "new": 8,
+    "updated": 16
   }
 }

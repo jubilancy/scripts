@@ -31,6 +31,16 @@
       "updated": "2026-08-14"
     },
     {
+      "id": "hugo",
+      "name": "Hugo",
+      "slug": "hugo",
+      "description": "Collection of hugo scripts",
+      "emoji": "📁",
+      "scriptCount": 11,
+      "created": "2026-08-14",
+      "updated": "2026-08-14"
+    },
+    {
       "id": "utilities",
       "name": "Utilities",
       "slug": "utilities",
@@ -51,8 +61,8 @@
       "updated": "2026-08-14"
     }
   ],
-  "lastUpdated": "2026-08-14T14:18:31.363Z",
+  "lastUpdated": "2026-08-14T14:32:49.941Z",
   "stats": {
-    "total": 5
+    "total": 6
   }
 }
