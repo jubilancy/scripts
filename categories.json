@@ -6,7 +6,7 @@
       "slug": "automation",
       "description": "Collection of automation scripts",
       "emoji": "⚙️",
-      "scriptCount": 2,
+      "scriptCount": 0,
       "created": "2026-08-14",
       "updated": "2026-08-14"
     },
@@ -16,7 +16,7 @@
       "slug": "data-processing",
       "description": "Collection of data processing scripts",
       "emoji": "📊",
-      "scriptCount": 2,
+      "scriptCount": 0,
       "created": "2026-08-14",
       "updated": "2026-08-14"
     },
@@ -26,7 +26,7 @@
       "slug": "utilities",
       "description": "Collection of utilities scripts",
       "emoji": "🔧",
-      "scriptCount": 2,
+      "scriptCount": 0,
       "created": "2026-08-14",
       "updated": "2026-08-14"
     },
@@ -34,14 +34,14 @@
       "id": "web-tools",
       "name": "Web Tools",
       "slug": "web-tools",
-      "description": "Collection of web tools scripts",
+      "description": "Collection of web-tools scripts",
       "emoji": "🌐",
-      "scriptCount": 2,
+      "scriptCount": 0,
       "created": "2026-08-14",
       "updated": "2026-08-14"
     }
   ],
-  "lastUpdated": "2026-08-14T13:14:12.852Z",
+  "lastUpdated": "2026-08-14T00:00:00.000Z",
   "stats": {
     "total": 4
   }

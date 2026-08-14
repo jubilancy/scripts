@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Script Library</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f8f9fa 0%, #f0f4f8 100%);
+      color: #1a1a1a;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    
+    header {
+      margin-bottom: 2.5rem;
+    }
+    
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .stats {
+      font-size: 14px;
+      color: #666;
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .stat-badge {
+      background: #e3f2fd;
+      color: #0066cc;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    
+    .controls {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    
+    .search-wrapper {
+      flex: 1;
+      min-width: 250px;
+      position: relative;
+    }
+    
+    .search-wrapper::before {
+      content: '🔍';
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 16px;
+      pointer-events: none;
+    }
+    
+    input[type="text"] {
+      width: 100%;
+      padding: 10px 12px 10px 40px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: all 0.2s;
+      background: white;
+    }
+    
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #0066cc;
+      box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+      background: white;
+    }
+    
+    input[type="text"]::placeholder {
+      color: #999;
+    }
+    
+    .filter-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    
+    .tag {
+      padding: 8px 14px;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-weight: 500;
+    }
+    
+    .tag:hover {
+      border-color: #0066cc;
+      background: #f0f5ff;
+      transform: translateY(-2px);
+    }
+    
+    .tag.active {
+      background: #0066cc;
+      color: white;
+      border-color: #0066cc;
+      box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3);
+    }
+    
+    .scripts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+      animation: fadeIn 0.3s ease-in;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .script-card {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+    
+    .script-card:hover {
+      border-color: #0066cc;
+      box-shadow: 0 8px 16px rgba(0, 102, 204, 0.15);
+      transform: translateY(-4px);
+    }
+    
+    .script-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      gap: 8px;
+    }
+    
+    .script-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0066cc;
+      word-break: break-word;
+      flex: 1;
+      line-height: 1.4;
+    }
+    
+    .copy-btn {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 6px 8px;
+      cursor: pointer;
+      font-size: 13px;
+      color: #0066cc;
+      transition: all 0.2s;
+      flex-shrink: 0;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    
+    .copy-btn:hover {
+      border-color: #0066cc;
+      background: #f0f5ff;
+    }
+    
+    .copy-btn.copied {
+      background: #e8f5e9;
+      border-color: #4caf50;
+      color: #4caf50;
+    }
+    
+    .script-description {
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 12px;
+      line-height: 1.6;
+      flex: 1;
+    }
+    
+    .script-meta {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: #f0f0f0;
+      color: #555;
+      font-weight: 500;
+    }
+    
+    .badge.category {
+      background: #e3f2fd;
+      color: #0066cc;
+    }
+    
+    .badge.tag {
+      background: #f3e5f5;
+      color: #6a1b9a;
+    }
+    
+    .script-footer {
+      font-size: 12px;
+      color: #999;
+      border-top: 1px solid #f0f0f0;
+      padding-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    
+    .script-file {
+      font-size: 11px;
+      color: #999;
+      font-family: 'Courier New', monospace;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    
+    .empty-state {
+      text-align: center;
+      padding: 4rem 1rem;
+      color: #666;
+      grid-column: 1 / -1;
+    }
+    
+    .empty-state-icon {
+      font-size: 56px;
+      margin-bottom: 1rem;
+      opacity: 0.4;
+    }
+    
+    .empty-state p {
+      font-size: 16px;
+      margin-bottom: 0.5rem;
+    }
+    
+    .empty-state-hint {
+      font-size: 12px;
+      color: #999;
+      margin-top: 8px;
+    }
+    
+    .loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 400px;
+      font-size: 14px;
+      color: #666;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 1.5rem 1rem;
+      }
+      
+      h1 {
+        font-size: 24px;
+      }
+      
+      .controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .search-wrapper {
+        min-width: 100%;
+      }
+      
+      input[type="text"] {
+        width: 100%;
+      }
+      
+      .filter-tags {
+        justify-content: flex-start;
+      }
+      
+      .scripts-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .stat-item {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📚 Script Library</h1>
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-badge" id="total-count">0</span>
+          <span>scripts</span>
+        </div>
+        <div class="stat-item">
+          Updated <span id="last-updated">—</span>
+        </div>
+      </div>
+    </header>
+    
+    <div class="controls">
+      <div class="search-wrapper">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search scripts…"
+          autocomplete="off"
+        >
+      </div>
+      <div class="filter-tags" id="category-filters"></div>
+    </div>
+    
+    <div class="scripts-grid" id="scripts-grid">
+      <div class="loading">Loading scripts…</div>
+    </div>
+  </div>
+
+  <script>
+    let allScripts = [];
+    let filteredScripts = [];
+    let activeFilters = new Set();
+
+    async function loadScripts() {
+      try {
+        const response = await fetch('./scripts.json');
+        if (!response.ok) throw new Error('Failed to fetch');
+        
+        const data = await response.json();
+        allScripts = data.scripts || [];
+        
+        document.getElementById('total-count').textContent = allScripts.length;
+        
+        if (data.lastUpdated) {
+          const date = new Date(data.lastUpdated);
+          const formatted = date.toLocaleDateString('en-US', { 
+            month: 'short', 
+            day: 'numeric', 
+            year: 'numeric' 
+          });
+          document.getElementById('last-updated').textContent = formatted;
+        }
+        
+        initializeFilters();
+        renderScripts();
+      } catch (error) {
+        console.error('Error loading scripts:', error);
+        document.getElementById('scripts-grid').innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state-icon">⚠️</div>
+            <p>Could not load scripts</p>
+            <div class="empty-state-hint">Make sure scripts.json exists in the repo root</div>
+          </div>
+        `;
+      }
+    }
+
+    function initializeFilters() {
+      const categories = [...new Set(allScripts.map(s => s.category))].sort();
+      const filterContainer = document.getElementById('category-filters');
+      filterContainer.innerHTML = '';
+      
+      categories.forEach(category => {
+        const tag = document.createElement('button');
+        tag.className = 'tag';
+        tag.textContent = category;
+        tag.type = 'button';
+        
+        tag.addEventListener('click', () => {
+          tag.classList.toggle('active');
+          if (tag.classList.contains('active')) {
+            activeFilters.add(category);
+          } else {
+            activeFilters.delete(category);
+          }
+          filterScripts();
+        });
+        
+        filterContainer.appendChild(tag);
+      });
+    }
+
+    function filterScripts() {
+      const query = document.getElementById('search-input').value.toLowerCase();
+      
+      filteredScripts = allScripts.filter(script => {
+        const matchesQuery = !query || 
+          script.name.toLowerCase().includes(query) ||
+          script.description.toLowerCase().includes(query) ||
+          script.tags.some(tag => tag.toLowerCase().includes(query)) ||
+          script.file.toLowerCase().includes(query);
+        
+        const matchesCategory = activeFilters.size === 0 || activeFilters.has(script.category);
+        
+        return matchesQuery && matchesCategory;
+      });
+      
+      renderScripts();
+    }
+
+    function renderScripts() {
+      const grid = document.getElementById('scripts-grid');
+      
+      if (allScripts.length === 0) {
+        grid.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state-icon">📭</div>
+            <p>No scripts yet</p>
+            <div class="empty-state-hint">Add scripts to categories/ folders to get started</div>
+          </div>
+        `;
+        return;
+      }
+      
+      if (filteredScripts.length === 0) {
+        grid.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state-icon">🔍</div>
+            <p>No scripts found</p>
+            <div class="empty-state-hint">Try adjusting your search or filters</div>
+          </div>
+        `;
+        return;
+      }
+      
+      grid.innerHTML = filteredScripts.map(script => `
+        <div class="script-card">
+          <div class="script-header">
+            <span class="script-name">${escapeHtml(script.name)}</span>
+            <button class="copy-btn" data-id="${script.id}" title="Copy file path">
+              📋 Copy
+            </button>
+          </div>
+          
+          <p class="script-description">${escapeHtml(script.description)}</p>
+          
+          <div class="script-meta">
+            <span class="badge category">${escapeHtml(script.category)}</span>
+            ${script.tags.map(tag => `<span class="badge tag">${escapeHtml(tag)}</span>`).join('')}
+          </div>
+          
+          <div class="script-footer">
+            <div class="script-file" title="${script.file}">📁 ${script.file}</div>
+            <div>Updated ${script.updated}</div>
+          </div>
+        </div>
+      `).join('');
+      
+      document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', handleCopy);
+      });
+    }
+
+    function handleCopy(e) {
+      const btn = e.currentTarget;
+      const id = btn.dataset.id;
+      const script = allScripts.find(s => s.id === id);
+      
+      if (script) {
+        const text = script.file;
+        navigator.clipboard.writeText(text).then(() => {
+          const originalText = btn.textContent;
+          btn.textContent = '✅ Copied';
+          btn.classList.add('copied');
+          
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.classList.remove('copied');
+          }, 2000);
+        }).catch(err => {
+          console.error('Failed to copy:', err);
+        });
+      }
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    document.getElementById('search-input').addEventListener('input', filterScripts);
+    document.getElementById('search-input').addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        e.target.value = '';
+        filterScripts();
+      }
+    });
+
+    window.addEventListener('load', loadScripts);
+  </script>
+</body>
+</html>
