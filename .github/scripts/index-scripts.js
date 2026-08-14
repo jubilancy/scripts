@@ -55,7 +55,7 @@ function extractMetadata(content, filePath) {
 /**
  * Recursively find all scripts in categories/
  */
-function findScripts(dir, extensions = ['.js', '.ts', '.py']) {
+function findScripts(dir, extensions = ['.js', '.ts', '.py', '.css', '.sh', '.rb', '.go', '.html']) {
   const scripts = [];
   
   if (!fs.existsSync(dir)) return scripts;
