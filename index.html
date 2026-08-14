@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Script Library</title>
+  <title>Script Library</title>
   <style>
     * {
       margin: 0;
@@ -43,12 +43,6 @@
       color: #666;
       display: flex;
       gap: 1rem;
-    }
-    
-    .stat-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
     }
     
     .stat-badge {
@@ -98,11 +92,6 @@
       outline: none;
       border-color: #0066cc;
       box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
-      background: white;
-    }
-    
-    input[type="text"]::placeholder {
-      color: #999;
     }
     
     .filter-tags {
@@ -132,25 +121,12 @@
       background: #0066cc;
       color: white;
       border-color: #0066cc;
-      box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3);
     }
     
     .scripts-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 16px;
-      animation: fadeIn 0.3s ease-in;
-    }
-    
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
     
     .script-card {
@@ -160,7 +136,7 @@
       padding: 16px;
       display: flex;
       flex-direction: column;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.3s;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     }
     
@@ -182,7 +158,6 @@
       font-size: 15px;
       font-weight: 700;
       color: #0066cc;
-      word-break: break-word;
       flex: 1;
       line-height: 1.4;
     }
@@ -193,14 +168,11 @@
       border-radius: 6px;
       padding: 6px 8px;
       cursor: pointer;
-      font-size: 13px;
+      font-size: 12px;
       color: #0066cc;
       transition: all 0.2s;
       flex-shrink: 0;
       font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 4px;
     }
     
     .copy-btn:hover {
@@ -249,6 +221,30 @@
       color: #6a1b9a;
     }
     
+    .script-actions {
+      display: flex;
+      gap: 8px;
+      margin: 12px 0;
+    }
+    
+    .action-btn {
+      flex: 1;
+      padding: 6px 8px;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+      color: #0066cc;
+      transition: all 0.2s;
+    }
+    
+    .action-btn:hover {
+      border-color: #0066cc;
+      background: #f0f5ff;
+    }
+    
     .script-footer {
       font-size: 12px;
       color: #999;
@@ -281,17 +277,6 @@
       opacity: 0.4;
     }
     
-    .empty-state p {
-      font-size: 16px;
-      margin-bottom: 0.5rem;
-    }
-    
-    .empty-state-hint {
-      font-size: 12px;
-      color: #999;
-      margin-top: 8px;
-    }
-    
     .loading {
       display: flex;
       align-items: center;
@@ -299,6 +284,120 @@
       min-height: 400px;
       font-size: 14px;
       color: #666;
+    }
+    
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    
+    .modal.active {
+      display: flex;
+    }
+    
+    .modal-content {
+      background: white;
+      border-radius: 12px;
+      max-width: 800px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+      border-bottom: 1px solid #e0e0e0;
+      background: linear-gradient(135deg, #f8f9fa 0%, #f0f4f8 100%);
+    }
+    
+    .modal-header h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+    
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #666;
+      padding: 0;
+      width: 32px;
+      height: 32px;
+    }
+    
+    .modal-close:hover {
+      color: #0066cc;
+    }
+    
+    .modal-body {
+      padding: 1.5rem;
+      flex: 1;
+      overflow-y: auto;
+    }
+    
+    .code-block {
+      background: #f5f5f5;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      overflow-x: auto;
+      line-height: 1.6;
+      margin: 1rem 0;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    
+    .modal-actions {
+      display: flex;
+      gap: 8px;
+      padding: 1rem 1.5rem;
+      border-top: 1px solid #e0e0e0;
+      background: #f8f9fa;
+    }
+    
+    .modal-btn {
+      padding: 10px 16px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s;
+      background: white;
+      color: #0066cc;
+    }
+    
+    .modal-btn:hover {
+      border-color: #0066cc;
+      background: #f0f5ff;
+    }
+    
+    .modal-btn.primary {
+      background: #0066cc;
+      color: white;
+      border-color: #0066cc;
+      flex: 1;
+    }
+    
+    .modal-btn.primary:hover {
+      background: #0052a3;
     }
     
     @media (max-width: 768px) {
@@ -319,20 +418,12 @@
         min-width: 100%;
       }
       
-      input[type="text"] {
-        width: 100%;
-      }
-      
       .filter-tags {
         justify-content: flex-start;
       }
       
       .scripts-grid {
         grid-template-columns: 1fr;
-      }
-      
-      .stat-item {
-        font-size: 12px;
       }
     }
   </style>
@@ -342,13 +433,7 @@
     <header>
       <h1>📚 Script Library</h1>
       <div class="stats">
-        <div class="stat-item">
-          <span class="stat-badge" id="total-count">0</span>
-          <span>scripts</span>
-        </div>
-        <div class="stat-item">
-          Updated <span id="last-updated">—</span>
-        </div>
+        <span class="stat-badge" id="total-count">0</span> scripts · Updated <span id="last-updated">—</span>
       </div>
     </header>
     
@@ -369,10 +454,28 @@
     </div>
   </div>
 
+  <div id="script-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modal-title">Script</h2>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-body">
+        <div id="modal-body-content"></div>
+      </div>
+      <div class="modal-actions">
+        <button class="modal-btn" onclick="copyScriptCode()">📋 Copy code</button>
+        <button class="modal-btn primary" onclick="downloadScript()">⬇️ Download</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     let allScripts = [];
     let filteredScripts = [];
     let activeFilters = new Set();
+    let currentScript = null;
+    let scriptContent = {};
 
     async function loadScripts() {
       try {
@@ -386,25 +489,16 @@
         
         if (data.lastUpdated) {
           const date = new Date(data.lastUpdated);
-          const formatted = date.toLocaleDateString('en-US', { 
-            month: 'short', 
-            day: 'numeric', 
-            year: 'numeric' 
-          });
+          const formatted = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
           document.getElementById('last-updated').textContent = formatted;
         }
         
         initializeFilters();
         renderScripts();
+        checkURLParams();
       } catch (error) {
         console.error('Error loading scripts:', error);
-        document.getElementById('scripts-grid').innerHTML = `
-          <div class="empty-state">
-            <div class="empty-state-icon">⚠️</div>
-            <p>Could not load scripts</p>
-            <div class="empty-state-hint">Make sure scripts.json exists in the repo root</div>
-          </div>
-        `;
+        document.getElementById('scripts-grid').innerHTML = `<div class="empty-state"><div class="empty-state-icon">⚠️</div><p>Could not load scripts</p></div>`;
       }
     }
 
@@ -455,24 +549,12 @@
       const grid = document.getElementById('scripts-grid');
       
       if (allScripts.length === 0) {
-        grid.innerHTML = `
-          <div class="empty-state">
-            <div class="empty-state-icon">📭</div>
-            <p>No scripts yet</p>
-            <div class="empty-state-hint">Add scripts to categories/ folders to get started</div>
-          </div>
-        `;
+        grid.innerHTML = `<div class="empty-state"><div class="empty-state-icon">📭</div><p>No scripts yet</p></div>`;
         return;
       }
       
       if (filteredScripts.length === 0) {
-        grid.innerHTML = `
-          <div class="empty-state">
-            <div class="empty-state-icon">🔍</div>
-            <p>No scripts found</p>
-            <div class="empty-state-hint">Try adjusting your search or filters</div>
-          </div>
-        `;
+        grid.innerHTML = `<div class="empty-state"><div class="empty-state-icon">🔍</div><p>No scripts found</p></div>`;
         return;
       }
       
@@ -480,18 +562,17 @@
         <div class="script-card">
           <div class="script-header">
             <span class="script-name">${escapeHtml(script.name)}</span>
-            <button class="copy-btn" data-id="${script.id}" title="Copy file path">
-              📋 Copy
-            </button>
+            <button class="copy-btn" data-id="${script.id}">📋 Copy</button>
           </div>
-          
           <p class="script-description">${escapeHtml(script.description)}</p>
-          
           <div class="script-meta">
             <span class="badge category">${escapeHtml(script.category)}</span>
             ${script.tags.map(tag => `<span class="badge tag">${escapeHtml(tag)}</span>`).join('')}
           </div>
-          
+          <div class="script-actions">
+            <button class="action-btn" onclick="viewScript('${script.category}', '${script.id}')">👁️ View</button>
+            <button class="action-btn" onclick="shareScript('${script.category}', '${script.id}')">🔗 Share</button>
+          </div>
           <div class="script-footer">
             <div class="script-file" title="${script.file}">📁 ${script.file}</div>
             <div>Updated ${script.updated}</div>
@@ -510,19 +591,87 @@
       const script = allScripts.find(s => s.id === id);
       
       if (script) {
-        const text = script.file;
-        navigator.clipboard.writeText(text).then(() => {
+        navigator.clipboard.writeText(script.file).then(() => {
           const originalText = btn.textContent;
           btn.textContent = '✅ Copied';
           btn.classList.add('copied');
-          
           setTimeout(() => {
             btn.textContent = originalText;
             btn.classList.remove('copied');
           }, 2000);
-        }).catch(err => {
-          console.error('Failed to copy:', err);
         });
+      }
+    }
+
+    async function viewScript(category, scriptId) {
+      const script = allScripts.find(s => s.category === category && s.id === scriptId);
+      if (!script) return;
+
+      currentScript = script;
+      document.getElementById('modal-title').textContent = script.name;
+      
+      try {
+        const response = await fetch(`./${script.file}`);
+        const content = await response.text();
+        scriptContent[scriptId] = content;
+        
+        document.getElementById('modal-body-content').innerHTML = `
+          <p style="color: #666; margin-bottom: 12px;">${escapeHtml(script.description)}</p>
+          <div class="script-meta">
+            <span class="badge category">${escapeHtml(script.category)}</span>
+            ${script.tags.map(tag => `<span class="badge tag">${escapeHtml(tag)}</span>`).join('')}
+          </div>
+          <div class="code-block">${escapeHtml(content)}</div>
+        `;
+        
+        document.getElementById('script-modal').classList.add('active');
+        window.history.pushState(null, '', `?${category}/${scriptId}`);
+      } catch (error) {
+        console.error('Error loading script:', error);
+        document.getElementById('modal-body-content').innerHTML = '<p style="color: #d32f2f;">Could not load script</p>';
+      }
+    }
+
+    function shareScript(category, scriptId) {
+      const url = `${window.location.origin}${window.location.pathname}?${category}/${scriptId}`;
+      navigator.clipboard.writeText(url).then(() => {
+        alert('Share link copied!');
+      });
+    }
+
+    function closeModal() {
+      document.getElementById('script-modal').classList.remove('active');
+      window.history.pushState(null, '', window.location.pathname);
+    }
+
+    function copyScriptCode() {
+      if (currentScript && scriptContent[currentScript.id]) {
+        navigator.clipboard.writeText(scriptContent[currentScript.id]).then(() => {
+          alert('Script copied to clipboard!');
+        });
+      }
+    }
+
+    function downloadScript() {
+      if (currentScript && scriptContent[currentScript.id]) {
+        const ext = currentScript.file.split('.').pop();
+        const element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(scriptContent[currentScript.id]));
+        element.setAttribute('download', currentScript.id + '.' + ext);
+        element.style.display = 'none';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+      }
+    }
+
+    function checkURLParams() {
+      const query = window.location.search.substring(1);
+      if (query) {
+        const [category, scriptId] = query.split('/');
+        if (category && scriptId) {
+          setTimeout(() => viewScript(category, scriptId), 100);
+        }
       }
     }
 
@@ -537,6 +686,12 @@
       if (e.key === 'Escape') {
         e.target.value = '';
         filterScripts();
+      }
+    });
+
+    document.getElementById('script-modal').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('script-modal')) {
+        closeModal();
       }
     });
 
