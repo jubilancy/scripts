@@ -1,0 +1,24 @@
+{
+  "scripts": [
+    {
+      "id": "url-parser",
+      "name": "URL Query Parser",
+      "category": "web-tools",
+      "file": "categories/web-tools/url-parser.js",
+      "description": "Parse and extract query string parameters from URLs",
+      "tags": [
+        "url",
+        "parsing",
+        "query-string"
+      ],
+      "updated": "2026-08-14",
+      "hash": "abc123def456"
+    }
+  ],
+  "lastUpdated": "2026-08-14T00:00:00.000Z",
+  "stats": {
+    "total": 1,
+    "new": 0,
+    "updated": 0
+  }
+}
