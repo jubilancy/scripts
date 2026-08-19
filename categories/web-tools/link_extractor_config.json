@@ -1,0 +1,50 @@
+{
+  "includeFilters": [
+    {
+      "value": "",
+      "type": "links"
+    }
+  ],
+  "excludeFilters": [
+    {
+      "value": "",
+      "type": "links"
+    }
+  ],
+  "checkboxOptions": {
+    "HideBlockedDomains": false,
+    "HideDomainsList": false,
+    "HideDuplicateLinks": true,
+    "HideSameOrigin": false,
+    "displayImages": false,
+    "displayImageLinks": false,
+    "showOnlyRowsWithImages": false,
+    "HideAnchorText": false,
+    "hideLinks": false,
+    "hideImageButtons": false
+  },
+  "sorting": "default",
+  "followFilter": "all",
+  "domainList": {
+    "accounts.google.com": true,
+    "chrome-stats.com": true,
+    "chromewebstore.google.com": true,
+    "crxextractor.com": true,
+    "github.com": true,
+    "google.com": true,
+    "kaveh.page": true,
+    "labs.google.com": true,
+    "maps.google.com": true,
+    "medium.com": true,
+    "mybrowseraddon.com": true,
+    "policies.google.com": true,
+    "reddit.com": true,
+    "support.google.com": true,
+    "youtube.com": true
+  },
+  "editorOperations": {
+    "replaceOps": [],
+    "trimOps": [],
+    "affixOps": []
+  }
+}
